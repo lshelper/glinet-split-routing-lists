@@ -1,0 +1,2 @@
+# Add public domains or IPv4/CIDR ranges here when they must explicitly avoid
+# the Russia-routed policy.

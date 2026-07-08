@@ -1,0 +1,5 @@
+9d1b011bf5321257e998ee8109f513948fd6a737f6ff8abf69a0ee13610ee06b  lists/dnsmasq/ru.ipset.conf
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  lists/glinet/direct.txt
+a07379fb5f5d8208ceb7303d3f056e57fb2ff8ab78b72e36923e1e5f352b8887  lists/glinet/ru.compact.txt
+8add5a21c084723fccd9562917199e2db02a1a98c32575482f284be075de64d3  lists/glinet/ru.txt
+62597ba0481f1417601dd269c9a79da9a6e19924b4f1d726b6eb56ae299cb88a  lists/meta/manifest.json
