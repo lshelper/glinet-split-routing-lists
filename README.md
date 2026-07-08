@@ -69,6 +69,38 @@ Source files live in `sources/`:
 
 Private router-local entries should go into `sources/private.local.txt`, which is ignored by git.
 
+## Router-Local Domain Add
+
+If a domain should be added directly to the VPN policy list stored on a GL.iNet router, use:
+
+```bash
+scripts/glinet-add-vpn-domain.sh --dry-run gosuslugi.ru
+scripts/glinet-add-vpn-domain.sh gosuslugi.ru
+```
+
+Default SSH target is `root@192.168.8.1`. Override it when needed:
+
+```bash
+scripts/glinet-add-vpn-domain.sh --router root@192.168.1.1 mos.ru
+```
+
+The script:
+
+- connects to the router over SSH;
+- updates `/etc/config/vpnpolicy`;
+- prefers the `vpnpolicy.domain` section, otherwise auto-detects the first policy section;
+- creates a timestamped backup next to `/etc/config/vpnpolicy`;
+- adds the domain idempotently;
+- runs `uci commit vpnpolicy`;
+- restarts `vpnpolicy-apply`.
+
+If auto-detection picks the wrong section, pass it explicitly:
+
+```bash
+scripts/glinet-add-vpn-domain.sh --section domain nalog.ru
+scripts/glinet-add-vpn-domain.sh --section '@policy[0]' nalog.ru
+```
+
 ## Validation Rules
 
 The build rejects:
