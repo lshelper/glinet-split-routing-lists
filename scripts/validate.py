@@ -15,6 +15,7 @@ def main() -> int:
 
     print(json.dumps(manifest["lists"], indent=2, sort_keys=True))
     print(json.dumps(manifest["compact"], indent=2, sort_keys=True))
+    print(json.dumps(manifest["compat"], indent=2, sort_keys=True))
     return 0
 
 

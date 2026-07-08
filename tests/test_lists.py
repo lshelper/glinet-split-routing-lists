@@ -42,7 +42,18 @@ class ListBuildTests(unittest.TestCase):
 
         compacted = build.compact_domains(unique_entries)
 
-        self.assertEqual([entry.value for entry in compacted], ["another.example.net", "example.com"])
+        self.assertEqual([entry.value for entry in compacted], ["example.com", "another.example.net"])
+
+    def test_glinet_compat_entries_remove_numeric_leading_domain_labels(self) -> None:
+        entries = [
+            build.normalize_entry("2gis.ru", "test", 1),
+            build.normalize_entry("mos.ru", "test", 2),
+            build.normalize_entry("1l.mail.ru", "test", 3),
+        ]
+
+        compatible = build.glinet_compat_entries(entries)
+
+        self.assertEqual([entry.value for entry in compatible], ["mos.ru"])
 
     def test_current_sources_build_without_validation_errors(self) -> None:
         outputs, manifest, errors = build.build_outputs()

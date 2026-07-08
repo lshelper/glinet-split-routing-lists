@@ -19,10 +19,19 @@ Optional compact version:
 https://raw.githubusercontent.com/lshelper/glinet-split-routing-lists/main/lists/glinet/ru.compact.txt
 ```
 
+Troubleshooting versions:
+
+```text
+https://raw.githubusercontent.com/lshelper/glinet-split-routing-lists/main/lists/glinet/ru-smoke.txt
+https://raw.githubusercontent.com/lshelper/glinet-split-routing-lists/main/lists/glinet/ru.compat.txt
+```
+
 ## Lists
 
 - `lists/glinet/ru.txt` - full public list of domains to route through the Russia endpoint.
 - `lists/glinet/ru.compact.txt` - compact version that removes child domains already covered by parent domains in the source list.
+- `lists/glinet/ru.compat.txt` - conservative GL.iNet parser compatibility version with numeric-leading domain labels removed.
+- `lists/glinet/ru-smoke.txt` - tiny test list for checking whether GL.iNet can import from GitHub raw URLs at all.
 - `lists/glinet/direct.txt` - explicit direct-route exclusions. Currently empty.
 - `lists/dnsmasq/ru.ipset.conf` - dnsmasq/ipset-style output for advanced OpenWrt setups.
 - `lists/meta/manifest.json` - generated list statistics.
@@ -39,6 +48,8 @@ In GL.iNet firmware v4.7+:
 5. Use `lists/glinet/direct.txt` as an exclusion list if needed.
 
 Clients should use the router for DNS. Browser DoH, Android Private DNS, or another DNS path outside the router can prevent domain-based routing from matching correctly.
+
+If GL.iNet reports `0 domain names or IP addresses were successfully detected`, try importing `ru-smoke.txt` first. If `ru-smoke.txt` works but `ru.txt` does not, use `ru.compat.txt` and report the firmware version.
 
 ## Updating
 

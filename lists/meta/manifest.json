@@ -5,6 +5,15 @@
       "total": 541
     }
   },
+  "compat": {
+    "ru": {
+      "removed_for_glinet_parser_compat": 19,
+      "total": 522
+    },
+    "smoke": {
+      "total": 5
+    }
+  },
   "lists": {
     "direct": {
       "cidr": 0,
@@ -26,8 +35,10 @@
     "direct_glinet": "lists/glinet/direct.txt",
     "manifest": "lists/meta/manifest.json",
     "ru_compact_glinet": "lists/glinet/ru.compact.txt",
+    "ru_compat_glinet": "lists/glinet/ru.compat.txt",
     "ru_dnsmasq_ipset": "lists/dnsmasq/ru.ipset.conf",
-    "ru_glinet": "lists/glinet/ru.txt"
+    "ru_glinet": "lists/glinet/ru.txt",
+    "ru_smoke_glinet": "lists/glinet/ru-smoke.txt"
   },
   "schema": 1,
   "sources": {

@@ -24,6 +24,8 @@ GENERATED_FILES = {
     "ru_glinet": LIST_DIR / "glinet" / "ru.txt",
     "direct_glinet": LIST_DIR / "glinet" / "direct.txt",
     "ru_compact_glinet": LIST_DIR / "glinet" / "ru.compact.txt",
+    "ru_compat_glinet": LIST_DIR / "glinet" / "ru.compat.txt",
+    "ru_smoke_glinet": LIST_DIR / "glinet" / "ru-smoke.txt",
     "ru_dnsmasq_ipset": LIST_DIR / "dnsmasq" / "ru.ipset.conf",
     "manifest": LIST_DIR / "meta" / "manifest.json",
     "checksums": LIST_DIR / "meta" / "checksums.txt",
@@ -31,6 +33,7 @@ GENERATED_FILES = {
 
 DOMAIN_LABEL_RE = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$")
 COMMENT_PREFIXES = ("#", ";")
+SMOKE_TEST_DOMAINS = ("mos.ru", "nalog.ru", "gosuslugi.ru", "yandex.ru", "avito.ru")
 
 
 @dataclass(frozen=True)
@@ -135,7 +138,7 @@ def dedupe_entries(entries: list[Entry]) -> tuple[list[Entry], dict[str, list[En
             continue
         seen[entry.value] = entry
 
-    return sorted(seen.values(), key=lambda entry: entry.value), duplicates
+    return list(seen.values()), duplicates
 
 
 def compact_domains(entries: list[Entry]) -> list[Entry]:
@@ -153,6 +156,23 @@ def compact_domains(entries: list[Entry]) -> list[Entry]:
             compacted.append(entry)
 
     return compacted
+
+
+def is_glinet_compat_domain(value: str) -> bool:
+    return all(label[:1].isalpha() for label in value.split("."))
+
+
+def glinet_compat_entries(entries: list[Entry]) -> list[Entry]:
+    return [
+        entry
+        for entry in entries
+        if entry.kind != "domain" or is_glinet_compat_domain(entry.value)
+    ]
+
+
+def smoke_entries(entries: list[Entry]) -> list[Entry]:
+    by_value = {entry.value: entry for entry in entries}
+    return [by_value[value] for value in SMOKE_TEST_DOMAINS if value in by_value]
 
 
 def serialize_plain(entries: list[Entry]) -> str:
@@ -186,11 +206,15 @@ def build_outputs() -> tuple[dict[Path, str], dict[str, object], list[str]]:
         return {}, {}, all_errors
 
     ru_compact = compact_domains(lists["ru"])
+    ru_compat = glinet_compat_entries(ru_compact)
+    ru_smoke = smoke_entries(lists["ru"])
 
     outputs: dict[Path, str] = {
         GENERATED_FILES["ru_glinet"]: serialize_plain(lists["ru"]),
         GENERATED_FILES["direct_glinet"]: serialize_plain(lists["direct"]),
         GENERATED_FILES["ru_compact_glinet"]: serialize_plain(ru_compact),
+        GENERATED_FILES["ru_compat_glinet"]: serialize_plain(ru_compat),
+        GENERATED_FILES["ru_smoke_glinet"]: serialize_plain(ru_smoke),
         GENERATED_FILES["ru_dnsmasq_ipset"]: serialize_dnsmasq_ipset(lists["ru"], "ru_domains"),
     }
 
@@ -213,6 +237,15 @@ def build_outputs() -> tuple[dict[Path, str], dict[str, object], list[str]]:
                 "total": len(ru_compact),
                 "removed_by_parent_domain": len(lists["ru"]) - len(ru_compact),
             }
+        },
+        "compat": {
+            "ru": {
+                "total": len(ru_compat),
+                "removed_for_glinet_parser_compat": len(ru_compact) - len(ru_compat),
+            },
+            "smoke": {
+                "total": len(ru_smoke),
+            },
         },
     }
 
@@ -267,6 +300,7 @@ def main() -> int:
 
     print(json.dumps(manifest["lists"], indent=2, sort_keys=True))
     print(json.dumps(manifest["compact"], indent=2, sort_keys=True))
+    print(json.dumps(manifest["compat"], indent=2, sort_keys=True))
     return 0
 
 

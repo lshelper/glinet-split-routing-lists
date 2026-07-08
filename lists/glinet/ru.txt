@@ -1,3 +1,19 @@
+deeper-connect.ru
+lr-west.ru
+mos.ru
+mosenergosbyt.ru
+gov.ru
+nalog.ru
+beeline.ru
+mgts.ru
+emex.ru
+cdek.ru
+kuper.ru
+krioblast.ru
+lr-club.com
+autorus.ru
+vseinstrumenti.ru
+megamarket.ru
 00.img.avito.st
 01.img.avito.st
 02.img.avito.st
@@ -171,7 +187,6 @@ auto.mail.ru
 auto.ru
 autodiscover.corp.mail.ru
 autodiscover.ord.ozon.ru
-autorus.ru
 av.mail.ru
 avatars.mds.yandex.com
 avatars.mds.yandex.net
@@ -187,7 +202,6 @@ bank.ozon.ru
 banners-website.wildberries.ru
 bb.mail.ru
 bd.mail.ru
-beeline.ru
 beko.dom.mail.ru
 bender.mail.ru
 beta.mail.ru
@@ -197,6 +211,7 @@ biz.mail.ru
 blackfriday.mail.ru
 blog.mail.ru
 bot.gosuslugi.ru
+gosuslugi.ru
 botapi.max.ru
 bratva-mr.mail.ru
 bro-bg-store.s3.yandex.com
@@ -213,7 +228,6 @@ capsula.mail.ru
 cargo.rzd.ru
 cars.mail.ru
 catalog.api.2gis.com
-cdek.ru
 cdn.connect.mail.ru
 cdn.lemanapro.ru
 cdn.newyear.mail.ru
@@ -278,7 +292,6 @@ da-preprod.biz.mail.ru
 da.biz.mail.ru
 data.amigo.mail.ru
 dating.ok.ru
-deeper-connect.ru
 deti.mail.ru
 dev.cs7777.vk.ru
 dev.max.ru
@@ -313,7 +326,6 @@ education.mail.ru
 egress.yandex.net
 eh.vk.com
 ekmp-a-51.rzd.ru
-emex.ru
 enterprise.api-maps.yandex.ru
 epp.genproc.gov.ru
 esa-res.online.sberbank.ru
@@ -345,9 +357,7 @@ geo-apart.predict.mail.ru
 gibdd.mail.ru
 go.mail.ru
 golos.mail.ru
-gosuslugi.ru
 gosweb.gosuslugi.ru
-gov.ru
 government.ru
 goya.rutube.ru
 gpb.finance.mail.ru
@@ -412,8 +422,6 @@ kommba.mail.ru
 konflikt.mail.ru
 kp.ru
 kremlin.ru
-krioblast.ru
-kuper.ru
 kz.mcs.mail.ru
 la.mail.ru
 lady.mail.ru
@@ -439,8 +447,6 @@ login.vk.com
 login.vk.ru
 lotro.mail.ru
 love.mail.ru
-lr-club.com
-lr-west.ru
 m.47news.ru
 m.avito.ru
 m.cs7777.vk.ru
@@ -470,18 +476,14 @@ media.mail.ru
 mediafeeds.yandex.com
 mediafeeds.yandex.ru
 mediapro.mail.ru
-megamarket.ru
 merch-cpg.money.mail.ru
 metrics.alfabank.ru
-mgts.ru
 microapps.kinopoisk.ru
 miniapp.internal.myteam.mail.ru
 minigames.mail.ru
 mking.mail.ru
 mobfarm.mail.ru
 money.mail.ru
-mos.ru
-mosenergosbyt.ru
 moskva.taximaxim.ru
 mosqa.mail.ru
 mowar.mail.ru
@@ -494,7 +496,6 @@ music.vk.ru
 my.mail.ru
 my.rzd.ru
 myteam.mail.ru
-nalog.ru
 nebogame.mail.ru
 net.mail.ru
 neuro.translate.yandex.ru
@@ -872,7 +873,6 @@ vkvideo.cs7777.vk.ru
 voina.mail.ru
 volunteer.lizaalert.org
 voter.gosuslugi.ru
-vseinstrumenti.ru
 vt-1.ozone.ru
 wap.yandex.com
 wap.yandex.ru
